@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_04_22_235557) do
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", charset: "utf8", force: :cascade do |t|
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_235557) do
     t.integer "user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", charset: "utf8", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
@@ -28,20 +28,20 @@ ActiveRecord::Schema.define(version: 2021_04_22_235557) do
     t.integer "user_id"
   end
 
-  create_table "posts_tags", id: false, force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "tag_id", null: false
+  create_table "posts_tags", id: false, charset: "utf8", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "tag_id", null: false
     t.index ["post_id"], name: "index_posts_tags_on_post_id"
     t.index ["tag_id"], name: "index_posts_tags_on_tag_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", charset: "utf8", force: :cascade do |t|
     t.string "tag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"

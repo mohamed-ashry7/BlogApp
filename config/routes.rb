@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :tags
     end
   
+    
     resources :users, only:[:create] 
     post "users/login", to: "users#login"
     get "users/auto_login", to: "users#auto_login"
